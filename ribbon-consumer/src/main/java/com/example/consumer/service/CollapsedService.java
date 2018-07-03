@@ -27,6 +27,6 @@ public class CollapsedService {
 
     @HystrixCommand
     public List<String> findAll(List<Long> ids){
-        return restTemplate.getForEntity("http://HELLO-SERVICE/index",List.class, StringUtils.join(ids,",")).getBody();
+        return restTemplate.getForEntity("http://HELLO-SERVICE/hello",List.class, StringUtils.join(ids,",")).getBody();
     }
 }

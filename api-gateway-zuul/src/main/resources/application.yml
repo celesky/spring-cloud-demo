@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 5555
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: ribbon-consumer
+    api-b:
+      path: /api-b/**
+      serviceId: feign-consumer
+    #本地跳转
+    api-c:
+      path: /api-c/**
+      url: forward:/local
+    #更简洁的方式
+    feign-consumer: /api-b/**
+  #解决302重定向问题
+  add-proxy-headers: true
+  #关闭重试请求
+  retryable: false
+
+
+#zuul默认路由规则 /<serviceId>/** 如果要指定屏蔽的默认路由
+#zuul.ignored-services=

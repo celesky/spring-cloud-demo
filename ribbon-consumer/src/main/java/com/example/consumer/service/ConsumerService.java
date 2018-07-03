@@ -20,7 +20,7 @@ public class ConsumerService {
     @HystrixCommand(fallbackMethod = "consumerInvokeback",commandKey = "consumerInvoke" ,groupKey = "Ribbon-Consumer",threadPoolKey = "consumerInvokeThread")
     public String consumerInvoke(){
         //调用provider端提供的服务 通过ribbon负载均衡
-        return restTemplate.getForEntity("http://HELLO-SERVICE/index",String.class).getBody();
+        return restTemplate.getForEntity("http://HELLO-SERVICE/hello",String.class).getBody();
     }
 
 
@@ -36,13 +36,13 @@ public class ConsumerService {
         return new AsyncResult<String>() {
             @Override
             public String invoke() {
-                return restTemplate.getForEntity("http://HELLO-SERVICE/index",String.class).getBody();
+                return restTemplate.getForEntity("http://HELLO-SERVICE/hello",String.class).getBody();
             }
 
         };
 
     }
     public String consumerInvokeback(){
-        return "consumerInvoke error";
+        return "consumerInvoke  error fallback";
     }
 }

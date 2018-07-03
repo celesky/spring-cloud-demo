@@ -48,7 +48,14 @@
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 			<version>1.4.4.RELEASE</version>
 		</dependency>
+        <!-- 直接使用turbine聚合
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-turbine</artifactId>
+        </dependency>
+        -->
 
+        <!-- turbine接入rabbitmq作为消息代码-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-turbine-stream</artifactId>
@@ -58,8 +65,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
 		</dependency>
-
-
+        <!-- -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
