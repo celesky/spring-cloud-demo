@@ -1,6 +1,6 @@
 spring:
   application:
-    name: api-gateway
+    name: api-gateway-zuul
 server:
   port: 5555
 eureka:
@@ -10,17 +10,17 @@ eureka:
 zuul:
   routes:
     api-a:
-      path: /api-a/**
+      path: "/api-a/**"
       serviceId: ribbon-consumer
     api-b:
-      path: /api-b/**
+      path: "/api-b/**"
       serviceId: feign-consumer
     #本地跳转
     api-c:
-      path: /api-c/**
+      path: "/api-c/**"
       url: forward:/local
     #更简洁的方式
-    feign-consumer: /api-b/**
+    feign-consumer: "/api-b/**"
   #解决302重定向问题
   add-proxy-headers: true
   #关闭重试请求
