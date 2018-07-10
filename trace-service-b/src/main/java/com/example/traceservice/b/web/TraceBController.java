@@ -1,4 +1,4 @@
-package com.example.traceservice.a.web;
+package com.example.traceservice.b.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,16 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-public class TraceAController {
+public class TraceBController {
 
-    private static Logger logger = LoggerFactory.getLogger(TraceAController.class);
+    private static Logger logger = LoggerFactory.getLogger(TraceBController.class);
+
+
     @Autowired
     RestTemplate restTemplate;
 
     @RequestMapping(value = "/trace", method = RequestMethod.GET)
     public String trace() {
-        logger.info("===call traceb.trace===");
-        return restTemplate.getForEntity("http://trace-b/trace", String.class).getBody();
+        logger.info("===call trace a service===");
+        return "this is come from TraceB service";
     }
 
 

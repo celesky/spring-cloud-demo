@@ -1,4 +1,4 @@
-package com.example.apigateway.zuul;
+package com.example.apigateway.zuul.dynamic.zuul;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -13,7 +13,9 @@ public class ConsumerController {
     @Autowired
     ConsumerService consumerService;
 
-    //测试消费者
+    /**
+     * 测试消费者
+     */
     @RequestMapping(value="/ribbon-consumer",method = RequestMethod.GET)
     public String helloConsumer(){
         //调用provider端提供的服务 通过ribbon负载均衡

@@ -1,4 +1,4 @@
-package com.example.apigateway;
+package com.example.apigateway.zuul.dynamic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableDiscoveryClient
 @EnableZuulProxy
 @SpringBootApplication
-public class ApiGatewayApplication {
+public class ApiGatewayZuulDynamicApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiGatewayApplication.class, args);
+		SpringApplication.run(ApiGatewayZuulDynamicApplication.class, args);
 	}
 }

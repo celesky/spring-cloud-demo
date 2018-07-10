@@ -1,4 +1,4 @@
-package com.example.apigateway.zuul.web;
+package com.example.apigateway.zuul.dynamic.zuul.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
