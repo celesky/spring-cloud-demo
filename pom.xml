@@ -25,8 +25,7 @@
         <module>bus-rabbitmq</module>
         <module>bus-kafka</module>
         <module>stream-rabbitmq</module>
-        <module>trace-service-a</module>
-        <module>trace-service-b</module>
-
+        <module>trace-service-1</module>
+        <module>trace-service-2</module>
     </modules>
 </project>

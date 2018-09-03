@@ -10,6 +10,6 @@ public class RabbitConfig {
 
     @Bean
     public Queue helloQueue(){
-        return new Queue("Hello");
+        return new Queue("payCallBackQueue");
     }
 }

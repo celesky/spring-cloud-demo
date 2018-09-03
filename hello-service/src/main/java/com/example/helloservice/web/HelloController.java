@@ -1,6 +1,7 @@
 package com.example.helloservice.web;
 
 import com.example.helloservice.bean.User;
+import com.example.helloservice.service.SendMqService;
 import com.google.common.base.Joiner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,12 @@ public class HelloController {
     @Autowired
     private DiscoveryClient client;
 
+    @Autowired
+    SendMqService sendMqService;
+
     @RequestMapping(value = "/hello" , method = RequestMethod.GET)
     public String hello(){
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>.faslkdafjfaslfjdaksfj ");
         List<String> serviceList = client.getServices();
         String servs="";
         if(serviceList!=null){
@@ -34,14 +39,15 @@ public class HelloController {
                 System.out.println("e = " + e.toString());
             });
         }
-        int sleepTime = new Random().nextInt(2000);
 
-        logger.info("sleepTime:"+sleepTime);
-//        try {
-//            Thread.sleep(sleepTime);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        //int sleepTime = new Random().nextInt(5000);
+
+//        logger.info("sleepTime:"+sleepTime);
+        try {
+              Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "hello world \n"+servs;
     }
 
@@ -73,6 +79,15 @@ public class HelloController {
     @RequestMapping(value = "/hello3" , method = RequestMethod.POST)
     public String hello(@RequestBody User user){
         return "hello3:"+user.getName()+ " , "+user.getAge();
+    }
+
+    /**
+     * 普通参数
+     * @return
+     */
+    @RequestMapping(value = "/sendmq" , method = RequestMethod.POST)
+    public void sendmq(@RequestParam String msg){
+         sendMqService.send(msg);
     }
 
 

@@ -14,8 +14,9 @@ public class RabbitmqSender {
     @Autowired
     private AmqpTemplate rabbitmqTemplate;
 
-    public void send(){
-        String msg = "hello !"+ LocalDateTime.now().format(DateTimeFormatter.ISO_DATE);
-        this.rabbitmqTemplate.convertAndSend("hello",msg);
+    public void send(String msg){
+        msg = "hello !"+ LocalDateTime.now().format(DateTimeFormatter.ISO_DATE)+" |"+msg;
+        System.out.println("send msg = " + msg);
+        this.rabbitmqTemplate.convertAndSend("payCallBackQueue",msg);
     }
 }

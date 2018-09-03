@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FeignHelloServiceFallback implements FeignHelloService{
     @Override
     public String hello() {
-        return null;
+        return "发生熔断咯~直接返回fallback";
     }
 
     @Override

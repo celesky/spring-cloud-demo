@@ -21,7 +21,7 @@ public class HelloServiceApplicationTests {
 
 	@Test
 	public void hello() throws Exception{
-		sender.send();
+		sender.send("丢你老母");
 	}
 
 

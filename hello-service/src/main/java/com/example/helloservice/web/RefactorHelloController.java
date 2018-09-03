@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 暴露rpc服务接口
+ * 通过互相继承接口耦合
  */
 @RestController
 public class RefactorHelloController implements HelloService{
